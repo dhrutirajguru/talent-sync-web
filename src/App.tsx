@@ -5,8 +5,6 @@ import { ProtectedRoute } from "@/components/layout/ProtectedRoute";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { LoginPage } from "@/routes/LoginPage";
 import { RegisterPage } from "@/routes/RegisterPage";
-import { DashboardStub } from "@/routes/DashboardStub";
-import { Placeholder } from "@/routes/Placeholder";
 import { StudentDashboardPage } from "@/routes/student/StudentDashboardPage";
 import { StudentSkillsPage } from "@/routes/student/StudentSkillsPage";
 import { StudentOpportunitiesPage } from "@/routes/student/StudentOpportunitiesPage";
@@ -18,7 +16,14 @@ import { IndustryCandidatesPage } from "@/routes/industry/IndustryCandidatesPage
 import { IndustryApplicationsPage } from "@/routes/industry/IndustryApplicationsPage";
 import { AcademicianDashboardPage } from "@/routes/academician/AcademicianDashboardPage";
 import { AcademicianSkillGapPage } from "@/routes/academician/AcademicianSkillGapPage";
-import { NAV_BY_ROLE, dashboardPathForRole } from "@/config/nav";
+import { AcademicianInstitutionAnalyticsPage } from "@/routes/academician/AcademicianInstitutionAnalyticsPage";
+import { StudentAssessmentPage } from "@/routes/student/StudentAssessmentPage";
+import { StudentPortfolioPage } from "@/routes/student/StudentPortfolioPage";
+import { NotificationsPage } from "@/routes/shared/NotificationsPage";
+import { LearningProgramsPage } from "@/routes/shared/LearningProgramsPage";
+import { CollaborationPage } from "@/routes/shared/CollaborationPage";
+import { ProfilePage } from "@/routes/shared/ProfilePage";
+import { dashboardPathForRole } from "@/config/nav";
 
 function HomeRedirect() {
   const { user, loading } = useAuth();
@@ -27,15 +32,9 @@ function HomeRedirect() {
   return <Navigate to={dashboardPathForRole(user.role_codes[0])} replace />;
 }
 
-const ROLE_LABELS: Record<string, string> = {
-  STUDENT: "B.Tech Student",
-  ACADEMICIAN: "Academician",
-  INDUSTRY: "Industry Partner",
-};
-
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter>
       <AuthProvider>
         <ToastProvider>
           <Routes>
@@ -49,46 +48,40 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route path="/notifications" element={<Placeholder title="Notifications" />} />
+              <Route path="/notifications" element={<NotificationsPage />} />
 
+              {/* Student */}
               <Route path="/student/dashboard" element={<StudentDashboardPage />} />
+              <Route path="/student/assessment" element={<StudentAssessmentPage />} />
               <Route path="/student/skills" element={<StudentSkillsPage />} />
               <Route path="/student/opportunities" element={<StudentOpportunitiesPage />} />
               <Route path="/student/applications" element={<StudentApplicationsPage />} />
+              <Route
+                path="/student/learning"
+                element={<LearningProgramsPage title="Learning Programs" subtitle="Close your skill gaps with industry-relevant learning." />}
+              />
+              <Route path="/student/portfolio" element={<StudentPortfolioPage />} />
+              <Route path="/student/profile" element={<ProfilePage title="My Profile" />} />
 
+              {/* Industry */}
               <Route path="/industry/dashboard" element={<IndustryDashboardPage />} />
               <Route path="/industry/post" element={<IndustryPostOpportunityPage />} />
               <Route path="/industry/opportunities" element={<IndustryOpportunitiesPage />} />
               <Route path="/industry/candidates" element={<IndustryCandidatesPage />} />
               <Route path="/industry/applications" element={<IndustryApplicationsPage />} />
+              <Route path="/industry/collaboration" element={<CollaborationPage />} />
+              <Route path="/industry/profile" element={<ProfilePage title="Company Profile" />} />
 
+              {/* Academician */}
               <Route path="/academician/dashboard" element={<AcademicianDashboardPage />} />
               <Route path="/academician/skill-gap" element={<AcademicianSkillGapPage />} />
-
-              {Object.entries(NAV_BY_ROLE).flatMap(([role, items]) =>
-                items
-                  .filter((item) => {
-                    const realPaths = [
-                      "/student/dashboard", "/student/skills", "/student/opportunities", "/student/applications",
-                      "/industry/dashboard", "/industry/post", "/industry/opportunities", "/industry/candidates", "/industry/applications",
-                      "/academician/dashboard", "/academician/skill-gap",
-                    ];
-                    return !realPaths.includes(item.path);
-                  })
-                  .map((item) => (
-                    <Route
-                      key={item.path}
-                      path={item.path}
-                      element={
-                        item.path.endsWith("/dashboard") ? (
-                          <DashboardStub roleLabel={ROLE_LABELS[role]} />
-                        ) : (
-                          <Placeholder title={item.label} />
-                        )
-                      }
-                    />
-                  ))
-              )}
+              <Route path="/academician/collaboration" element={<CollaborationPage />} />
+              <Route path="/academician/institution" element={<AcademicianInstitutionAnalyticsPage />} />
+              <Route
+                path="/academician/learning"
+                element={<LearningProgramsPage title="FDPs & Programs" subtitle="Faculty development programs and industry-led training." />}
+              />
+              <Route path="/academician/profile" element={<ProfilePage title="My Profile" />} />
             </Route>
 
             <Route path="/" element={<HomeRedirect />} />

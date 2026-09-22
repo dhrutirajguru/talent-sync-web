@@ -1,0 +1,29 @@
+[
+  {
+    "id": "collab1",
+    "title": "Mentorship Program",
+    "collaboration_type": "MENTORSHIP",
+    "partner_organization_name": "Vertex Analytics Solutions",
+    "description": "Mentor 20 students over 2 months on applied data science projects.",
+    "status": "OPEN",
+    "start_date": "2026-10-01"
+  },
+  {
+    "id": "collab2",
+    "title": "Guest Lecture Series",
+    "collaboration_type": "GUEST_LECTURE",
+    "partner_organization_name": "CloudPeak Systems",
+    "description": "A series of guest lectures on cloud infrastructure and platform engineering.",
+    "status": "OPEN",
+    "start_date": "2026-10-10"
+  },
+  {
+    "id": "collab3",
+    "title": "Live Cloud Project Challenge",
+    "collaboration_type": "LIVE_PROJECT",
+    "partner_organization_name": "Nimbus Web Technologies",
+    "description": "Real-time analytics dashboard build, 3 months, mentored by senior engineers.",
+    "status": "OPEN",
+    "start_date": "2026-11-01"
+  }
+]

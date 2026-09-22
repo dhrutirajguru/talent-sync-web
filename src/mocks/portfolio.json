@@ -1,0 +1,30 @@
+{
+  "projects": [
+    {
+      "id": "proj1",
+      "title": "Smart Campus Assistant",
+      "description": "A chatbot that helps students find classrooms, faculty office hours, and event schedules.",
+      "related_skill_names": ["Python", "React.js"],
+      "project_url": null,
+      "status": "COMPLETED"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert1",
+      "title": "Python for Everybody",
+      "issuing_organization": "Coursera",
+      "issue_date": "2026-03-15",
+      "credential_url": null,
+      "verified": true
+    },
+    {
+      "id": "cert2",
+      "title": "Introduction to Cloud Computing (AWS)",
+      "issuing_organization": "AWS",
+      "issue_date": "2026-01-20",
+      "credential_url": null,
+      "verified": true
+    }
+  ]
+}

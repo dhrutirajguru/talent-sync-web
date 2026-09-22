@@ -1,0 +1,20 @@
+{
+  "STUDENT": {
+    "college_name": "National Institute of Applied Technology",
+    "branch": "Computer Science Engineering",
+    "year": "3rd Year",
+    "career_interests": "AI/ML, Web Development, Data Science"
+  },
+  "ACADEMICIAN": {
+    "department": "Computer Science & Engineering",
+    "designation": "Associate Professor",
+    "specialization": "Data Systems & Applied AI",
+    "research_interests": "Recommender systems, educational data mining"
+  },
+  "INDUSTRY": {
+    "company_name": "Vertex Analytics Solutions",
+    "department": "Talent Acquisition",
+    "designation": "HR Manager",
+    "expertise": "Campus hiring, technical assessments"
+  }
+}

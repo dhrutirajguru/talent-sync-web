@@ -1,0 +1,50 @@
+[
+  {
+    "id": "n1",
+    "notification_type": "APPLICATION_STATUS",
+    "title": "Your application has been received",
+    "body": "Vertex Analytics Solutions has received your application for Data Analyst Intern.",
+    "related_entity_type": "APPLICATION",
+    "related_entity_id": null,
+    "action_url": "/student/applications",
+    "read": false,
+    "read_at": null,
+    "created_at": "2026-09-20T10:24:00Z"
+  },
+  {
+    "id": "n2",
+    "notification_type": "NEW_OPPORTUNITY_MATCH",
+    "title": "New internship opportunity in your domain",
+    "body": "A new opportunity matching your skill profile was just posted.",
+    "related_entity_type": "OPPORTUNITY",
+    "related_entity_id": null,
+    "action_url": "/student/opportunities",
+    "read": false,
+    "read_at": null,
+    "created_at": "2026-09-19T13:12:00Z"
+  },
+  {
+    "id": "n3",
+    "notification_type": "COLLABORATION_INVITE",
+    "title": "Workshop: AI in Industry scheduled",
+    "body": "A new industry workshop has been scheduled for next week.",
+    "related_entity_type": "COLLABORATION",
+    "related_entity_id": null,
+    "action_url": null,
+    "read": true,
+    "read_at": "2026-09-18T09:00:00Z",
+    "created_at": "2026-09-18T08:00:00Z"
+  },
+  {
+    "id": "n4",
+    "notification_type": "SYSTEM",
+    "title": "Your skill assessment report is ready",
+    "body": "Your latest skill assessment results have been processed.",
+    "related_entity_type": null,
+    "related_entity_id": null,
+    "action_url": "/student/skills",
+    "read": true,
+    "read_at": "2026-09-16T11:41:00Z",
+    "created_at": "2026-09-16T11:40:00Z"
+  }
+]

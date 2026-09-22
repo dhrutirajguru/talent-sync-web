@@ -1,0 +1,42 @@
+[
+  {
+    "id": "lp1",
+    "title": "Data Structures Mastery",
+    "provider_organization_name": "Vertex Analytics Solutions",
+    "program_type": "COURSE",
+    "duration_text": "8 weeks",
+    "level": "BEGINNER",
+    "description": "Build a strong foundation in data structures and algorithmic problem solving.",
+    "related_skill_names": ["Python", "Problem Solving"]
+  },
+  {
+    "id": "lp2",
+    "title": "AWS Cloud Foundations",
+    "provider_organization_name": "CloudPeak Systems",
+    "program_type": "CERTIFICATION",
+    "duration_text": "6 weeks",
+    "level": "BEGINNER",
+    "description": "Get certified on core AWS services used in real production deployments.",
+    "related_skill_names": ["AWS", "Linux Administration"]
+  },
+  {
+    "id": "lp3",
+    "title": "React Career Path",
+    "provider_organization_name": "Nimbus Web Technologies",
+    "program_type": "PROJECT_BASED",
+    "duration_text": "4 weeks",
+    "level": "INTERMEDIATE",
+    "description": "Project-based track covering component architecture, state management, and testing.",
+    "related_skill_names": ["React.js", "JavaScript"]
+  },
+  {
+    "id": "lp4",
+    "title": "Faculty Development Program: AI in Curriculum Design",
+    "provider_organization_name": "Vertex Analytics Solutions",
+    "program_type": "FDP",
+    "duration_text": "2 days",
+    "level": "ALL_LEVELS",
+    "description": "A workshop for faculty on integrating applied AI/ML case studies into coursework.",
+    "related_skill_names": ["Machine Learning"]
+  }
+]

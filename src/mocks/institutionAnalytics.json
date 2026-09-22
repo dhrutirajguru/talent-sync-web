@@ -1,0 +1,20 @@
+{
+  "total_students": 1240,
+  "placement_rate": 78,
+  "active_internships": 48,
+  "industry_partners": 32,
+  "skill_distribution": [
+    { "skill_category": "Technical", "student_count": 496 },
+    { "skill_category": "Soft Skills", "student_count": 372 },
+    { "skill_category": "Data & AI", "student_count": 186 },
+    { "skill_category": "Cloud & DevOps", "student_count": 124 },
+    { "skill_category": "Other", "student_count": 62 }
+  ],
+  "placement_trends": [
+    { "period": "2022", "placements": 610 },
+    { "period": "2023", "placements": 705 },
+    { "period": "2024", "placements": 760 },
+    { "period": "2025", "placements": 840 },
+    { "period": "2026", "placements": 890 }
+  ]
+}
