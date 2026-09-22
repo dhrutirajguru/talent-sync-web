@@ -73,32 +73,45 @@ Set in `.env` (see `.env.example`):
 
 ## Deployment
 
-The production build is deployed as a static site to a subfolder of a shared GitHub Pages user
-site (`dhrutirajguru.github.io/talentsync/`), not its own domain. That has two consequences
-baked into the code and build command:
+The production build is deployed as a static site into a shared GitHub Pages user site
+(`dhrutirajguru.github.io`), which also hosts a few older, unrelated projects in their own
+subfolders. It's deployed twice, to two different paths:
 
-- The build must be run with an explicit base path so asset URLs resolve under the subfolder:
+- **Root** (`https://dhrutirajguru.github.io/`): the primary, judge-facing copy, kept at root
+  deliberately so it can be repurposed for something else after the hackathon.
+- **`/talentsync/` subfolder**: a secondary, stable copy whose URL won't change even if root
+  content changes later.
 
-  ```bash
-  npm run build -- --base=/talentsync/
-  ```
+Since it isn't served from its own domain, each copy needs its own build, because asset URLs
+are baked in at build time:
 
-- `App.tsx`'s `BrowserRouter` uses `basename={import.meta.env.BASE_URL}`, which picks up
-  whatever base was passed at build time, so routing matches the served subpath without a
-  hardcoded value.
+```bash
+npm run build                        # root copy: default base "/"
+npm run build -- --base=/talentsync/ # subfolder copy
+```
 
-Since GitHub Pages has no SPA fallback by default, a hard refresh or a direct deep link under
-`/talentsync/...` would otherwise 404. `index.html` includes a small inline script (the
+`App.tsx`'s `BrowserRouter` uses `basename={import.meta.env.BASE_URL}`, which picks up whatever
+base was passed at build time, so routing matches whichever copy is being served without a
+hardcoded value.
+
+Since GitHub Pages has no SPA fallback by default, a hard refresh or a direct deep link (in
+either copy) would otherwise 404. `index.html` includes a small inline script (the
 [spa-github-pages](https://github.com/rafgraph/spa-github-pages) pattern) that restores the
-intended route from a `?p=` query string; the matching redirect lives in a `404.html` at the
+intended route from a `?/` query string; the matching redirect lives in a `404.html` at the
 GitHub Pages repo root, not in this repo, since GitHub Pages only honors one 404 page for the
-whole site.
+whole site. That `404.html` only preserves the first path segment for the known legacy
+subfolders; every other path is treated as a deep link into whichever app is currently at root.
 
 To publish an update:
 
 ```bash
+npm run build
+# copy the contents of dist/ into the root of the dhrutirajguru.github.io repo (index.html and
+# assets/, leaving its other subfolders untouched)
+
 npm run build -- --base=/talentsync/
-# copy the contents of dist/ into the talentsync/ folder of the dhrutirajguru.github.io repo,
+# copy the contents of dist/ into the talentsync/ folder of that same repo
+
 # then commit and push that repo
 ```
 
